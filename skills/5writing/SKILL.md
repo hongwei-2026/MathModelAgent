@@ -10,6 +10,25 @@ allowed-tools: Bash(*), Read, Write, Edit, Grep, Glob, Agent, WebSearch, WebFetc
 
 **Typst 引擎**下可调用 typst-author skill 学习 typst 写法；**LaTeX 引擎**参考本文件末尾的"LaTeX 写作要点"小节。
 
+## 观感与体量（强制，对齐 CUMCM 2026 官方电子版 + 获奖正文）
+
+必须同时遵守：
+
+`../mathmodel-cumcm-style/SKILL.md`
+
+补充笔记：`../_references/cumcm_style_from_reference_papers.md`、`../_references/AWARD_STYLE_ANALYSIS.md`
+
+硬性要求摘要：
+- **默认生成电子版**：无承诺书、无编号页、**无目录**、无页眉身份信息
+- 第 1 页 = 题目 + 摘要 + 关键词（摘要不跨页；关键词 3–5 个；摘要禁公式图表）
+- 页边距 ≥2.5cm；页脚居中阿拉伯数字，自摘要页起为 1
+- 字体：题目三号黑 / 一级四号黑居中 / 二三级小四黑左齐 / 正文小四宋 / 图表题五号宋
+- **同时交付 PDF + Word(.docx) + LaTeX(.tex)**，内容一致，便于人工修改
+- 主结果与灵敏度优先**三线表**；段间适当空行；关键模型名/指标克制加粗
+- 正文目标约 20–28 页且 ≤30（不含附录）；观感学习勿堆参考卷大段代码
+- 一级标题禁止强制换页留白；结构按官方：重述→分析→假设→符号→建模求解→检验灵敏度→改进→优缺点
+- 摘要可用“针对问题一/二/三…”并写真实数值
+
 ## 数学建模规范参考
 
 如需领域判断，读取 `../_references/math_modeling_norms.md` 中的“论文写作”“图表与可视化”和“非数据图工具选择”小节。该文件只作为规范知识库，论文结构仍按比赛模板和当前赛题内容决定。
