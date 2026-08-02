@@ -10,6 +10,8 @@ allowed-tools: Bash(*), Read, Write, Edit, Grep, Glob, Agent, WebSearch, WebFetc
 
 **Typst 引擎**下可调用 typst-author skill 学习 typst 写法；**LaTeX 引擎**参考本文件末尾的"LaTeX 写作要点"小节。
 
+图表来源约定：`figures/` 中的数据图来自 `3coding-visual`；若需期刊感复杂统计图，前序可经 `../mathmodel-figure-templates/SKILL.md` 出图（须已换真实数据）。流程/架构图来自 `4drawio`。插入时遵守 `mathmodel-cumcm-style` 的同节少堆图、图题在下、图后解读。
+
 ## 观感与体量（强制，对齐 CUMCM 2026 官方电子版 + 获奖正文）
 
 必须同时遵守：
