@@ -70,6 +70,9 @@ MathModelAgent SKILL —— 直接在 Harness 中驱动的数学建模自动化�
 **✅ 9 步自动验收**
 文本泄漏检测 → 数值一致性校验 → Typst 编译 → PDF 可视化检查，确保论文零低级错误。
 
+**🧱 论文写前门禁（mathmodel-paper-gate）**
+写长文前先冻结 `PAPER_FACTS.lock` + 批准 `PAPER_OUTLINE` + 读获奖风格卡；写后 `SCORECARD` 最多 10 条补丁。脚本：`init_paper_gate.py` / `confirm_gate.py` / `check_paper_gate.py` / `score_paper.py`。目标是人只确认两次，其后只小改。
+
 **🔧 可组合、可扩展**
 每个阶段是独立 Skill，可单独调用（如只跑分析、只写论文）；模板和知识库可自由扩展；支持 Typst 生态排版。
 

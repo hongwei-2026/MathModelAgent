@@ -8,6 +8,8 @@ allowed-tools: Bash(*), Read, Write, Edit, Grep, Glob, Agent, WebSearch, WebFetc
 
 本 skill 是完整工作流的最后一关。它不重新建模、不生成新结果、不代替写作阶段重写论文；它负责发现硬错误、修复可直接修复的问题，并输出 `reports/VERIFY_REPORT.md`。
 
+写后内容质量若需「国赛六维 + ≤10 条补丁」，先跑 `../mathmodel-paper-gate/SKILL.md` 的 Pass C（`score_paper.py` / `SCORECARD.md`），再进入本 skill 做编译与结构硬验收。本阶段**禁止**借验收之机推翻 `PAPER_OUTLINE` 或全文重写。
+
 ## 数学建模规范参考
 
 如需领域判断，读取 `../_references/math_modeling_norms.md` 中的"论文验收与一致性"小节。该文件只是规范知识库，不是固定执行流程；具体目录、入口文件、结果文件和图表目录由当前项目结构决定。
@@ -30,12 +32,26 @@ allowed-tools: Bash(*), Read, Write, Edit, Grep, Glob, Agent, WebSearch, WebFetc
 6. 可复现代码目录。
 7. 编译后的 PDF，或可由入口文件编译得到的输出 PDF。
 
-不要假设论文目录一定叫 `paper/`，也不要假设结果文件一定在项目根。若项目使用不同命名，按实际结构传参并在 `reports/VERIFY_REPORT.md` 中说明。
+不要假设论文目录一定叫 `paper/`，也不要假设结果文件一定在项目根。若项目使用不同命名，按实际结构传参并在 `reports/VERIFY_REPORT.md` 中说明。数值一致性优先对照 `reports/PAPER_FACTS.lock.md`（若存在），其次才是 `RESULTS_REPORT.md`。
 
 ## 工作流程
 
 
+### Step 0: 论文门禁产物（若存在则检查）
+
+
+若项目使用 `mathmodel-paper-gate`：
+
+```bash
+python "<skill-dir>/../mathmodel-paper-gate/scripts/check_paper_gate.py" --root "$ROOT_DIR"
+python "<skill-dir>/../mathmodel-paper-gate/scripts/score_paper.py" --root "$ROOT_DIR" --write
+```
+
+- lock 未 frozen / outline 未 approved → `FAIL`（或在 VERIFY_REPORT 标明「跳过门禁」的用户授权）。
+- SCORECARD 必改项未清零 → `FAIL` 或 `WARN`（有未处理补丁时不得标 PASS）。
+
 ### Step 1: 运行文本质量门禁
+
 
 优先运行本 skill 的脚本。脚本按入口文件扩展名自动选择检查逻辑（`.typ` → Typst 检查，`.tex` → LaTeX 检查）：
 

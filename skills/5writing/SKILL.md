@@ -12,11 +12,24 @@ allowed-tools: Bash(*), Read, Write, Edit, Grep, Glob, Agent, WebSearch, WebFetc
 
 图表来源约定：`figures/` 中的数据图来自 `3coding-visual`；若需期刊感复杂统计图，前序可经 `../mathmodel-figure-templates/SKILL.md` 出图（须已换真实数据）。流程/架构图来自 `4drawio`。插入时遵守 `mathmodel-cumcm-style` 的同节少堆图、图题在下、图后解读。
 
+## 写前硬门禁（Pass A → 再写正文）
+
+**禁止**在缺少门禁产物时直接自由发挥长文。必须先执行 `../mathmodel-paper-gate/SKILL.md`：
+
+1. 写并请用户确认 `reports/PAPER_FACTS.lock.md`（`status: frozen`）
+2. 读一张 `../_references/award_style_cards/` 风格卡，写并请用户确认 `reports/PAPER_OUTLINE.md`（`status: approved`）
+3. 运行 `python ../mathmodel-paper-gate/scripts/check_paper_gate.py --root <项目根>` 通过后，才进入本 skill 的模板复制与 **Pass B 按大纲填槽**
+4. 正文数值 ⊆ lock；禁止 lock `FORBIDDEN` 结论；禁止改 outline 一级结构
+5. 初稿后跑 `score_paper.py --write` → 填 `reports/SCORECARD.md`（≤10 条补丁）→ 只打补丁，再交 `6verity`
+
+模板文件在 `../mathmodel-paper-gate/templates/`。
+
 ## 观感与体量（强制，对齐 CUMCM 2026 官方电子版 + 获奖正文）
 
 必须同时遵守：
 
-`../mathmodel-cumcm-style/SKILL.md`
+`../mathmodel-cumcm-style/SKILL.md`  
+写前/写后门禁：`../mathmodel-paper-gate/SKILL.md`
 
 补充笔记：`../_references/cumcm_style_from_reference_papers.md`、`../_references/AWARD_STYLE_ANALYSIS.md`
 

@@ -8,6 +8,9 @@ allowed-tools: Bash(*), Read, Write, Edit, Grep, Glob, Agent, WebSearch, WebFetc
 
 本 skill 承接 `2analysis-modeling`。目标是把 `reports/ANALYSIS_MODELING_REPORT.md` 里的模型和算法落实为可复现程序，跑出可信结果，并生成论文中需要的数据型图表。
 
+结果稳定后，在进入 `5writing` 之前应由 `mathmodel-paper-gate` 把关键数值写入 `reports/PAPER_FACTS.lock.md`（本阶段至少保证 `RESULTS_REPORT.md` 与 CSV 数字一致，便于 lock 填写）。
+
+
 ## 数学建模规范参考
 
 如需领域判断，读取 `../_references/math_modeling_norms.md` 中的“题型防错速查”“代码实现与结果”“编码阶段常见错误”和“图表与可视化”小节。该文件只作为规范知识库，不新增本阶段的固定产物。

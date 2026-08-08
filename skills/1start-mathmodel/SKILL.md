@@ -55,8 +55,9 @@ workflow:
 1. 赛题分析与建模设计 - `2analysis-modeling`
 2. 编程实现和图表生成 - `3coding-visual`
 3. 流程与架构图绘制 - `4drawio`
-4. 竞赛论文撰写 - `5writing`
-5. 验证和验收 - `6verity`
+4. 论文门禁（lock+outline+风格卡） - `mathmodel-paper-gate`
+5. 竞赛论文撰写（按大纲填槽） - `5writing`
+6. 验证和验收 - `6verity`
 ```
 
 ## 项目目录结构
@@ -71,7 +72,10 @@ workflow:
 │   ├── ANALYSIS_MODELING_REPORT.md  # 1: 赛题分析-建模报告（2analysis-modeling）
 │   ├── RESULTS_REPORT.md            # 2: 结果报告（3coding-visual）
 │   ├── DRAWIO_REPORT.md             # 3: 非数据图说明（4drawio）
-│   ├── VERIFY_REPORT.md             # 5: 验收报告（6verity）
+│   ├── PAPER_FACTS.lock.md          # 4: 冻结数值与可说结论（mathmodel-paper-gate）
+│   ├── PAPER_OUTLINE.md             # 4: 结构大纲（mathmodel-paper-gate）
+│   ├── SCORECARD.md                 # 5后: 六维打分与≤10条补丁
+│   ├── VERIFY_REPORT.md             # 6: 验收报告（6verity）
 ├── code/                        # 2: 代码（3coding-visual）
 │   ├── problem1.py
 │   ├── problem2.py
@@ -99,8 +103,9 @@ workflow:
 - [ ] 1. 赛题分析与建模设计 - `2analysis-modeling`
 - [ ] 2. 编程实现和图表生成 - `3coding-visual`
 - [ ] 3. 流程与架构图绘制 - `4drawio`
-- [ ] 4. 竞赛论文撰写 - `5writing`
-- [ ] 5. 验证和验收 - `6verity`
+- [ ] 4. 论文门禁 lock/outline - `mathmodel-paper-gate`
+- [ ] 5. 竞赛论文撰写 - `5writing`
+- [ ] 6. 验证和验收 - `6verity`
 ```
 
 每完成一个阶段，都要更新 `todo.md` 中对应任务的状态。
@@ -114,7 +119,8 @@ workflow:
 | 赛题分析与建模设计 | `2analysis-modeling` | 解析题意、识别变量/约束/数据/评价指标，并建立数学模型、目标函数、约束条件和求解策略。 | `ANALYSIS_MODELING_REPORT.md` |
 | 编程实现和图表生成 | `3coding-visual` | 实现可复现代码，运行实验，生成结果表和多种多样的图表。 | `code/`, `results/` ,  `RESULTS_REPORT.md`, `figures/图表` |
 | 流程与架构图绘制 | `4drawio` | 在论文确实需要时，绘制方法流程图、架构图和非数据型概念图。 | `figures/*.drawio`, `figures/*.pdf`, `DRAWIO_REPORT.md` |
-| 竞赛论文撰写 | `5writing` | 基于分析、建模、代码结果和图表撰写最终竞赛论文，并按章节直接插入图表。 | `paper/` |
+| 论文门禁 | `mathmodel-paper-gate` | 冻结事实 lock、批准大纲、读风格卡；写后 SCORECARD≤10 条补丁。 | `PAPER_FACTS.lock.md`, `PAPER_OUTLINE.md`, `SCORECARD.md` |
+| 竞赛论文撰写 | `5writing` | 按已批准大纲填槽扩写；数值只能来自 lock；按章节插入图表。 | `paper/` |
 | 验证和验收 | `6verity` | 检查可复现性、一致性、产物完整性、格式规范和提交就绪状态。 | `VERIFY_REPORT.md` |
 
 ## 阶段边界
@@ -125,4 +131,5 @@ workflow:
 - `5writing` 负责决定图表在论文中的位置，并按所选引擎写入图表代码：
   - Typst：`#figure(image("../../figures/xxx.pdf", width: 85%), caption: [...])`
   - LaTeX：`\begin{figure}[H]\centering\includegraphics[width=0.85\textwidth]{../../figures/xxx.pdf}\caption{...}\label{fig:xxx}\end{figure}`
-- 不要让 `5writing` 编造数值结论。论文中的数值必须来自 `RESULTS_REPORT.md`、结果表或已生成图表的数据。
+- 不要让 `5writing` 编造数值结论。论文中的数值必须来自已冻结的 `PAPER_FACTS.lock.md`（其来源为 `RESULTS_REPORT.md`、结果表或图表数据）。
+- 未完成 `mathmodel-paper-gate` 的 lock/outline 用户确认前，不得开始长文扩写。

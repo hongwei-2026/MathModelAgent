@@ -8,3 +8,5 @@ description: "共享规范知识库。包含数学建模竞赛的写作规范、
 本文件夹是共享规范知识库，不是可独立执行的 skill。
 
 其他 skills 在需要领域判断时会读取 `math_modeling_norms.md` 中的相关小节。请勿手动触发此 skill。
+
+获奖卷**蒸馏风格卡**见 `award_style_cards/`（由 `mathmodel-paper-gate` / `5writing` 在写前 Read 一张）。完整 PDF 观感统计见 `AWARD_STYLE_ANALYSIS.md`。
